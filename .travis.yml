@@ -10,14 +10,14 @@ script:
   - docker run -e CI=true docker-react-tests npm test
 
 after_success:
-  - docker build -t multi/client ./client
-  - docker build -t multi/nginx ./nginx
-  - docker build -t multi/server ./server
-  - docker build -t multi/worker ./worker
+  - docker build -t junaidramzanicc/multi-client ./client
+  - docker build -t junaidramzanicc/multi-nginx ./nginx
+  - docker build -t junaidramzanicc/multi-server ./server
+  - docker build -t junaidramzanicc/multi-worker ./worker
   # Login to docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # push the images to docker hub
-  - docker push multi/client
-  - docker push multi/nginx
-  - docker push multi/server
-  - docker push multi/worker
+  - docker push junaidramzanicc/multi-client
+  - docker push junaidramzanicc/multi-nginx
+  - docker push junaidramzanicc/multi-server
+  - docker push junaidramzanicc/multi-worker
